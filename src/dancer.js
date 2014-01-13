@@ -15,5 +15,15 @@ Dancer.prototype = {
       left: left
     };
     this.$node.css(styleSettings);
+  },
+  lineUp: function(){
+    var side = this.side;
+    var distance = 40;
+    if (this.side === 'right'){
+      distance = parseInt($('body').css('width'))-parseInt(this.$node.css('width'))-distance;
+      side = 'left';
+    }
+    this.$node.css(side, distance);
+    this.$node.css('-webkit-transition', side+' 2.5s');
   }
 };

@@ -18,13 +18,18 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SquareDancer">add a square dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="RectangleDancer">add a spinning rectange</a>
+      <a href="#" class="lineUpButton">Line Up!</a>
 
     </div>
 
     <script>
       $(document).ready(function(){
         window.dancers = [];
-
+        $(".lineUpButton").on('click', function(event){
+          dancers.forEach(function(dancer){
+            dancer.lineUp();
+          })
+        })
         $(".addDancerButton").on("click", function(event){
           /* This function sets up the click handlers for the create-dancer
            * buttons on index.html. You should not need to alter it.
@@ -50,6 +55,7 @@
             Math.random() * 1000
           );
           $('body').append(dancer.$node);
+          dancers.push(dancer);
         });
       });
     </script>
