@@ -28,3 +28,10 @@ body, a:link, a:visited, a:active{
 .blinky{
   border:10px solid blue;
 }
+.square{
+  border-radius:0;
+  border:20px solid yellow;
+}
+.squareMove{
+  -webkit-transform: translate(10px, 10px);
+}
