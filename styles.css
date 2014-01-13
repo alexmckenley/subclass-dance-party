@@ -35,3 +35,13 @@ body, a:link, a:visited, a:active{
 .squareMove{
   -webkit-transform: translate(10px, 10px);
 }
+.rectangle{
+  border: none;
+  width: 30px;
+  height: 15px;
+  background-color: green;
+}
+.rectangleMove{
+  -webkit-transform: rotate(360deg);
+  /*-webkit-transition: -webkit-transform 2s;*/
+}
