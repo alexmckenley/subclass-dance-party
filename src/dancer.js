@@ -9,8 +9,8 @@ Dancer.prototype = {
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   },
   setPosition: function(top, left){
-    top = top || this.position.top;
-    left = left || this.position.left;
+    top = top-40 || this.position.top;
+    left = left - 130 || this.position.left;
     this.$node.css({
       top: (top),
       left: (left)

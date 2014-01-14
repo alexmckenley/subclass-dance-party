@@ -2,10 +2,11 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
-  background-image: url('./img/dance_floor.jpg');
-  background-size: 100% 100%;
-  background-color:#444;
+  height:600px;
+  width: 900px;
+  background: url('./img/blades.jpg') no-repeat;
+  background-position: 0 40px;
+  background-color:#111;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -65,4 +66,78 @@ body, a:link, a:visited, a:active{
   -webkit-transform: none;
   border: 1px solid white;
   -webkit-transition: none;
+}
+
+ @-webkit-keyframes rotate {
+      from { -webkit-transform: rotate(0deg); }
+      to { -webkit-transform: rotate(7200deg); }
+}
+
+@-webkit-keyframes blend{
+  from{-webkit-transform: scale(1,1) rotate(0deg);}
+  to {-webkit-transform: scale(0.05, 0.05) rotate(3600deg);}
+}
+
+.blender, .blenderImage{
+  background-image: url('./img/blades_center.png');
+  background-size: 100% 100%;
+  position: absolute;
+  top: 52px;
+  left: 132px;
+  height: 600px;
+  width: 600px;
+/*  bottom: 50px;
+  right: 100px;*/
+}
+.blender{
+  background-image: none;
+}
+/*.blenderImage{
+  background-image: url('./img/blender.jpg');
+  background-size: 100% 100%;
+  position: absolute;
+  height: 600px;
+  width: 700px;
+}*/
+
+.blending{
+  -webkit-animation: rotate 10s 4000 ease-in-out;
+  animation: rotate 1s 4000 linear;
+}
+
+.shrinking{
+  -webkit-animation: blend 10s 4000 ease-in-out;
+  animation: blend 10s 4000 ease-in-out;
+}
+
+.button{
+    position: fixed;
+    top: 640px;
+    width: 65%;
+    margin: 50px 15% 20px 15%;
+    font-size: 3em;
+    background: white;
+    color: #2e3242;
+    text-align: center;
+    padding: 2.5%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: #4f5673 0 10px 0;
+    -moz-box-shadow: #4f5673 0 10px 0;
+    box-shadow: #4f5673 0 10px 0;
+}
+.button:active {
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-transform: translate(0, 5px);
+    -moz-transform: translate(0, 5px);
+    -ms-transform: translate(0, 5px);
+    -o-transform: translate(0, 5px);
+    transform: translate(0, 5px);
+    background: #bbbdc7;
+    color: white;
 }

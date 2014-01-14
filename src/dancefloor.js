@@ -21,11 +21,12 @@ $(document).ready(function () {
     var dancer = new dancerMakerFunction(
       Math.max(500, Math.random() * 1200)
     );
-    $('body').append(dancer.$node);
     dancers.push(dancer);
+    $('.blender').append(dancer.$node);
     dancer.$node.addClass('track');
     dancer.$node.on('click', function(e){
       dancer.toggleTracking();
+
     });
     resetPosition.call(dancer, event);
     // $(document.body).on("mousemove", resetPosition.bind(dancer));
@@ -33,6 +34,22 @@ $(document).ready(function () {
     //   $(document.body).off('mousemove');
     // });
   });
+  $('.blendButton').on('click', function(e){
+    $('.blender').toggleClass('blending');
+    $('.blender').toggleClass('shrinking');
+    $('.blenderImage').toggleClass('blending');
+    setTimeout(function(){
+    dancers.forEach(function(dancer){
+      dancer.$node.remove();
+    });
+    dancers = [];
+    $('.blender').toggleClass('blending');
+    $('.blender').toggleClass('shrinking');
+    $('.blenderImage').toggleClass('blending');
+    }, 10000);
+  });
+
+
   $(document.body).on('mousemove', function(e){
     dancers.forEach(function(dancer){
       if (dancer.$node.hasClass('track')){
