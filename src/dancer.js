@@ -3,6 +3,7 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.$node.addClass('dancer');
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
+  this.$node.css({'-webkit-transition': '-webkit-transform '+this.timeBetweenSteps/1000+'s'});
   this.step();
 };
 Dancer.prototype = {
