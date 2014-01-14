@@ -1,9 +1,9 @@
 var Dancer = function(top, left, timeBetweenSteps){
   this.$node = $('<span></span>');
   this.$node.addClass('dancer');
-  this.setPosition(top, left);
+  //this.setPosition(top - this.$node.height()/2, left);
   this.timeBetweenSteps = timeBetweenSteps;
-  this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s ease-in'});
+  // this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s'});
   this.step();
   this.position = {
     top: top,
@@ -15,10 +15,13 @@ Dancer.prototype = {
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   },
   setPosition: function(top, left){
+    top = top || this.position.top;
+    left = left || this.position.left;
     this.$node.css({
-      top: (top || this.position.top),
-      left: (left || this.position.left)
+      top: (top),
+      left: (left)
     });
+    this.position = {top: top, left: left};
   },
   lineUp: function(){
     var side = this.side;

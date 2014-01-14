@@ -28,6 +28,8 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 .blinky{
+  width: 10px;
+  height: 10px;
   border:10px solid blue;
 }
 .nyan{
@@ -51,4 +53,7 @@ body, a:link, a:visited, a:active{
 }
 .rotate{
   -webkit-transform: rotate(360deg);
+}
+.hidden{
+  opacity: 0;
 }
