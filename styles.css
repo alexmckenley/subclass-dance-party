@@ -62,6 +62,7 @@ body, a:link, a:visited, a:active{
   opacity: 0;
 }
 .track{
+  -webkit-transform: none;
   border: 1px solid white;
   -webkit-transition: none;
 }
