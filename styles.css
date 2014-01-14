@@ -3,6 +3,8 @@ body, html{
 }
 body{
   margin: 0px;
+  background-image: url('./img/dance_floor.jpg');
+  background-size: 100% 100%;
   background-color:#444;
   font-size: 18px;
 }
@@ -24,4 +26,29 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.blinky{
+  border:10px solid blue;
+}
+.nyan{
+  width: 125px;
+  height: 75px;
+  background-image: url('./img/nyan_cat.png');
+  background-size: 100% 100%;
+  border-radius:0;
+  border:none;
+}
+.bounce{
+  -webkit-transform: translate(0, 10px);
+}
+.jiggly{
+  width: 110px;
+  height: 120px;
+  background-image: url('./img/jigglypuff.png');
+  background-size: 100% 100%;
+  border-radius:0;
+  border: none;
+}
+.rotate{
+  -webkit-transform: rotate(360deg);
 }
