@@ -1,4 +1,4 @@
-var NyanCat = function(top, left, timeBetweenSteps){
+var NyanCat = function(timeBetweenSteps){
   Dancer.apply(this, arguments);
   this.$node.addClass('nyan');
   this.side = 'top';

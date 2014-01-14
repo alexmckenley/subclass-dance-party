@@ -1,14 +1,8 @@
-var Dancer = function(top, left, timeBetweenSteps){
+var Dancer = function(timeBetweenSteps){
   this.$node = $('<span></span>');
   this.$node.addClass('dancer');
-  //this.setPosition(top - this.$node.height()/2, left);
   this.timeBetweenSteps = timeBetweenSteps;
-  // this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s'});
   this.step();
-  this.position = {
-    top: top,
-    left: left
-  };  
 };
 Dancer.prototype = {
   step: function(){
@@ -31,14 +25,12 @@ Dancer.prototype = {
       side = 'left';
     }
     this.$node.css(side, distance);
-    //this.$node.css('-webkit-transition', side+' 2.5s');
   },
   toggleTracking: function(){
     var transition = 'all '+this.timeBetweenSteps/1000+'s';
     if(!this.$node.hasClass('track')){
       transition = 'none';
     }
-    console.log(transition);
     this.$node.css({'-webkit-transition': transition});
     this.$node.toggleClass('track');
   }
