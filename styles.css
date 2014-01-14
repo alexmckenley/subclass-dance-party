@@ -63,5 +63,5 @@ body, a:link, a:visited, a:active{
 }
 .track{
   border: 1px solid white;
-  -webkit-transition: none !important;
+  -webkit-transition: none;
 }

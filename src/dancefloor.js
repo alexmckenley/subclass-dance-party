@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
   });
   var resetPosition = function (e) {
-    this.setPosition(e.pageY - this.$node.height() / 2, e.pageX - this.$node.height() / 2);
+    this.setPosition(e.pageY - this.$node.height() / 2, e.pageX - this.$node.width() / 2);
   };
   $(".addDancerButton").on("click", function (event) {
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
@@ -25,9 +25,9 @@ $(document).ready(function () {
     );
     $('body').append(dancer.$node);
     dancers.push(dancer);
-    dancer.$node.toggleClass('track');
+    dancer.$node.addClass('track');
     dancer.$node.on('click', function(e){
-      $(e.target).toggleClass('track');
+      dancer.toggleTracking();
     });
     resetPosition.call(dancer, event);
     // $(document.body).on("mousemove", resetPosition.bind(dancer));
@@ -40,6 +40,6 @@ $(document).ready(function () {
       if (dancer.$node.hasClass('track')){
         resetPosition.call(dancer, e);
       }
-    })
+    });
   });
 });
