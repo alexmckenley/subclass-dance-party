@@ -34,6 +34,20 @@ $(document).ready(function () {
     //   $(document.body).off('mousemove');
     // });
   });
+  $('.fillButton').on('click', function(e){
+    for(var i = 0; i < 20; i++){
+      var dancer = new Jigglypuff(Math.max(500, Math.random() * 1200));
+      dancers.push(dancer);
+
+      //Set the position of the new elements here
+      dancer.setPosition( 100 + (Math.random() * 400), 100 + (Math.random() * 500));
+      dancer.$node.addClass('track');
+      dancer.toggleTracking();
+      dancer.$node.on('click', Dancer.prototype.toggleTracking.bind(dancer));
+      $('.blender').append(dancer.$node);
+    }
+  });
+
   $('.blendButton').on('click', function(e){
     $('.blender').toggleClass('blending');
     $('.blender').toggleClass('shrinking');
