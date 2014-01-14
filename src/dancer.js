@@ -3,19 +3,22 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.$node.addClass('dancer');
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
-  this.$node.css({'-webkit-transition': '-webkit-transform '+this.timeBetweenSteps/1000+'s'});
+  this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s ease-in'});
   this.step();
+  this.position = {
+    top: top,
+    left: left
+  };
 };
 Dancer.prototype = {
   step: function(){
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   },
   setPosition: function(top, left){
-    var styleSettings = {
-      top: top,
-      left: left
-    };
-    this.$node.css(styleSettings);
+    this.$node.css({
+      top: (top || this.position.top),
+      left: (left || this.position.left)
+    });
   },
   lineUp: function(){
     var side = this.side;
@@ -25,6 +28,6 @@ Dancer.prototype = {
       side = 'left';
     }
     this.$node.css(side, distance);
-    this.$node.css('-webkit-transition', side+' 2.5s');
+    //this.$node.css('-webkit-transition', side+' 2.5s');
   }
 };

@@ -51,5 +51,4 @@ body, a:link, a:visited, a:active{
 }
 .rotate{
   -webkit-transform: rotate(360deg);
-  /*-webkit-transition: -webkit-transform 2s;*/
 }

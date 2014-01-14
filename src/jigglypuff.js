@@ -8,5 +8,4 @@ Jigglypuff.prototype.constructor = Jigglypuff;
 Jigglypuff.prototype.step = function(){
   Dancer.prototype.step.call(this);
   this.$node.toggleClass('rotate');
-
 };
