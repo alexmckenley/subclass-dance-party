@@ -15,6 +15,10 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.otherButtons{
+  padding:5px 12px;
+  float:left;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -56,4 +60,8 @@ body, a:link, a:visited, a:active{
 }
 .hidden{
   opacity: 0;
+}
+.track{
+  border: 1px solid white;
+  -webkit-transition: none !important;
 }

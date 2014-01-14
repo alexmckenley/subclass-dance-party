@@ -3,7 +3,7 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.$node.addClass('dancer');
   //this.setPosition(top - this.$node.height()/2, left);
   this.timeBetweenSteps = timeBetweenSteps;
-  // this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s'});
+  this.$node.css({'-webkit-transition': 'all '+this.timeBetweenSteps/1000+'s'});
   this.step();
   this.position = {
     top: top,

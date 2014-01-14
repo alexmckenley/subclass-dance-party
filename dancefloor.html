@@ -8,68 +8,17 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/nyanCat.js"></script>
     <script src="src/jigglypuff.js"></script>
-
   </head>
   <body>
-
     <div class="topbar">
       <span class="title">object dance party</span>
       <!-- this button just works, creates a dancer -->
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="NyanCat">add a Nyan Cat!</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="Jigglypuff">Jigglypuff used Rollout!</a>
-      <a href="#" class="lineUpButton addDancerButton">Line Up!</a>
-            <a href="#" class="resetPostion addDancerButton">Go Back!</a>
-
-
+      <a href="#" class="lineUpButton otherButtons">Line Up!</a>
+            <a href="#" class="resetPostion otherButtons">Go Back!</a>
     </div>
-
-    <script>
-      $(document).ready(function(){
-        window.dancers = [];
-        $(".lineUpButton").on('click', function(event){
-          dancers.forEach(function(dancer){
-            dancer.lineUp();
-          })
-        });
-        $('.resetPostion').on('click', function(event){
-          dancers.forEach(function(dancer){
-            dancer.setPosition();
-          });
-        });
-
-          var resetPosition = function(e){
-            this.setPosition(e.pageY - this.$node.height()/2, e.pageX - this.$node.height()/2);
-          }
-
-        $(".addDancerButton").on("click", function(event){
-          var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
-          // get the maker function for the kind of dancer we're supposed to make
-          var dancerMakerFunction = window[dancerMakerFunctionName];
-
-          // make a dancer with a random position
-          var dancer = new dancerMakerFunction(
-            event.pageY,
-            event.pageX,
-            Math.max(500, Math.random() * 1200)
-          );
-          $('body').append(dancer.$node);
-          dancers.push(dancer);
-
-          resetPosition.call(dancer, event);
-
-          $(document.body).on("mousemove", resetPosition.bind(dancer));
-
-
-            dancer.$node.on('click', function(event){
-            $(document.body).off('mousemove');
-          });
-        });
-
-
-      });
-    </script>
-
+    <script src="./src/dancefloor.js"></script>
   </body>
 </html>
