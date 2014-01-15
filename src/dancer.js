@@ -5,10 +5,11 @@ var Dancer = function(timeBetweenSteps){
   this.position = {
     left: 0,
     top: 0
-  }
+  };
   this.step();
 };
 Dancer.prototype = {
+  //Step the animation and move dancer into the blender using polar coordinates
   step: function(){
     var x = this.position.left;
     var y = this.position.top;
@@ -21,11 +22,8 @@ Dancer.prototype = {
       var theta = Math.random()*360;
       x = Math.cos(Math.PI*theta/180)*r+428;
       y = Math.sin(Math.PI*theta/180)*r+349;
-      //console.log(x, y);
       this.setPosition(y,x);
     }
-    //if outside of blender
-      //calculate new coordinates and set Position
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   },
   setPosition: function(top, left){
@@ -41,7 +39,7 @@ Dancer.prototype = {
     var side = this.side;
     var distance = 40;
     if (this.side === 'right'){
-      distance = parseInt($('body').css('width'))-parseInt(this.$node.css('width'))-distance;
+      distance = parseInt($('body').css('width'), 10) - parseInt(this.$node.css('width'), 10) - distance;
       side = 'left';
     }
     this.$node.css(side, distance);
