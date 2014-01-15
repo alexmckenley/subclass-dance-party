@@ -1,18 +1,26 @@
 $(document).ready(function () {
   window.dancers = [];
+
+  //Line up button event handler
   $(".lineUpButton").on('click', function (event) {
     dancers.forEach(function (dancer) {
       dancer.lineUp();
     });
   });
+
+  //Go back button handler
   $('.resetPostion').on('click', function (event) {
     dancers.forEach(function (dancer) {
       dancer.setPosition();
     });
   });
+
+  //Reset dancer to mouse location
   var resetPosition = function (e) {
     this.setPosition(e.pageY - this.$node.height() / 2, e.pageX - this.$node.width() / 2);
   };
+
+  //Add Dancer event handler
   $(".addDancerButton").on("click", function (event) {
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
     // get the maker function for the kind of dancer we're supposed to make
@@ -29,11 +37,9 @@ $(document).ready(function () {
 
     });
     resetPosition.call(dancer, event);
-    // $(document.body).on("mousemove", resetPosition.bind(dancer));
-    // dancer.$node.on('click', function (event) {
-    //   $(document.body).off('mousemove');
-    // });
   });
+
+  //Place random dancers on the page.
   $('.fillButton').on('click', function(e){
     for(var i = 0; i < 20; i++){
       var dancer = new Jigglypuff(Math.max(500, Math.random() * 1200));
@@ -48,6 +54,7 @@ $(document).ready(function () {
     }
   });
 
+  //Blend Button Handler
   $('.blendButton').on('click', function(e){
     $('.blender').toggleClass('blending');
     $('.blender').toggleClass('shrinking');
@@ -63,7 +70,7 @@ $(document).ready(function () {
     }, 10000);
   });
 
-
+  //Mouse Move handler for any dancer witht he track class
   $(document.body).on('mousemove', function(e){
     dancers.forEach(function(dancer){
       if (dancer.$node.hasClass('track')){
