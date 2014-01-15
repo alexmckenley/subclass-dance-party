@@ -113,8 +113,8 @@ body, a:link, a:visited, a:active{
 .button{
     position: fixed;
     top: 640px;
-    width: 65%;
-    margin: 50px 15% 20px 15%;
+    width: 600px;
+    margin: 40px 150px 10px 150px;
     font-size: 3em;
     background: white;
     color: #2e3242;
